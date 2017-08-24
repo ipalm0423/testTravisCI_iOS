@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435211EF1F4E6A2300A1E2CB /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 435211EE1F4E6A2300A1E2CB /* .travis.yml */; };
 		43B6BE911F4D8E34002AE9C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B6BE901F4D8E34002AE9C4 /* main.m */; };
 		43B6BE941F4D8E34002AE9C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B6BE931F4D8E34002AE9C4 /* AppDelegate.m */; };
 		43B6BE971F4D8E34002AE9C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B6BE961F4D8E34002AE9C4 /* ViewController.m */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		435211EE1F4E6A2300A1E2CB /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		43B6BE8C1F4D8E34002AE9C4 /* testTravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43B6BE901F4D8E34002AE9C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43B6BE921F4D8E34002AE9C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				43B6BE9D1F4D8E34002AE9C4 /* LaunchScreen.storyboard */,
 				43B6BEA01F4D8E34002AE9C4 /* Info.plist */,
 				43B6BE8F1F4D8E34002AE9C4 /* Supporting Files */,
+				435211EE1F4E6A2300A1E2CB /* .travis.yml */,
 			);
 			path = testTravisCI;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				43B6BE9F1F4D8E34002AE9C4 /* LaunchScreen.storyboard in Resources */,
 				43B6BE9C1F4D8E34002AE9C4 /* Assets.xcassets in Resources */,
+				435211EF1F4E6A2300A1E2CB /* .travis.yml in Resources */,
 				43B6BE9A1F4D8E34002AE9C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +522,7 @@
 				43B6BEBB1F4D8E34002AE9C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43B6BEBC1F4D8E34002AE9C4 /* Build configuration list for PBXNativeTarget "testTravisCITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +531,7 @@
 				43B6BEBE1F4D8E34002AE9C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43B6BEBF1F4D8E34002AE9C4 /* Build configuration list for PBXNativeTarget "testTravisCIUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +540,7 @@
 				43B6BEC11F4D8E34002AE9C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
