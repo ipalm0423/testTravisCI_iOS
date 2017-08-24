@@ -1,19 +1,21 @@
 language: objective-c
 os: osx
 cache:
-- bundler
-- cocoapods
+    - bundler
+    - cocoapods
 osx_image: xcode8.3
 sudo: false
 before_install:
-- brew update
-- brew outdated xctool || brew upgrade xctool
-- gem install cocoapods -v '1.2.1'
-- pod repo update
+    - brew update
+    - brew outdated xctool || brew upgrade xctool
+    - gem install cocoapods -v '1.2.1'
+    - pod repo update
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash)
 notifications:
-    slack: liquid-wow:FKzsScp1dTpExUmEM0ZsDFWC
+    slack:
+        rooms:
+            - liquid-wow:FKzsScp1dTpExUmEM0ZsDFWC
         on_success: always
         on_failure: always
 
