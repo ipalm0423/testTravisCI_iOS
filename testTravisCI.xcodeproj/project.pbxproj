@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4320D2A21F4ED3B3008E4639 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 4320D2A11F4ED3B3008E4639 /* fastlane */; };
 		435211EF1F4E6A2300A1E2CB /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 435211EE1F4E6A2300A1E2CB /* .travis.yml */; };
 		43B6BE911F4D8E34002AE9C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B6BE901F4D8E34002AE9C4 /* main.m */; };
 		43B6BE941F4D8E34002AE9C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B6BE931F4D8E34002AE9C4 /* AppDelegate.m */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4320D2A11F4ED3B3008E4639 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		435211EE1F4E6A2300A1E2CB /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		43B6BE8C1F4D8E34002AE9C4 /* testTravisCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testTravisCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43B6BE901F4D8E34002AE9C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				43B6BEA01F4D8E34002AE9C4 /* Info.plist */,
 				43B6BE8F1F4D8E34002AE9C4 /* Supporting Files */,
 				435211EE1F4E6A2300A1E2CB /* .travis.yml */,
+				4320D2A11F4ED3B3008E4639 /* fastlane */,
 			);
 			path = testTravisCI;
 			sourceTree = "<group>";
@@ -210,7 +213,7 @@
 				TargetAttributes = {
 					43B6BE8B1F4D8E34002AE9C4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 645FK3YW36;
+						DevelopmentTeam = Z2U36UFBHG;
 						ProvisioningStyle = Automatic;
 					};
 					43B6BEA41F4D8E34002AE9C4 = {
@@ -256,6 +259,7 @@
 				43B6BE9C1F4D8E34002AE9C4 /* Assets.xcassets in Resources */,
 				435211EF1F4E6A2300A1E2CB /* .travis.yml in Resources */,
 				43B6BE9A1F4D8E34002AE9C4 /* Main.storyboard in Resources */,
+				4320D2A21F4ED3B3008E4639 /* fastlane in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +437,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 645FK3YW36;
+				DEVELOPMENT_TEAM = Z2U36UFBHG;
 				INFOPLIST_FILE = testTravisCI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morpheus.testTravisCI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morpheus.testTravisCI.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -445,10 +449,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 645FK3YW36;
+				DEVELOPMENT_TEAM = Z2U36UFBHG;
 				INFOPLIST_FILE = testTravisCI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morpheus.testTravisCI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morpheus.testTravisCI.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
