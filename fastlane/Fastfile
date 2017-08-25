@@ -33,12 +33,12 @@ platform :ios do
     temp_keychain_name = "testTravis-certs"
 
     create_keychain(
-    name: temp_keychain_name,
-    default_keychain: true,
-    unlock: true,
-    timeout: 3600,
-    lock_when_sleeps: true,
-    password: SecureRandom.base64
+        name: temp_keychain_name,
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        lock_when_sleeps: true,
+        password: SecureRandom.base64
     )
 
     import_certificate(
