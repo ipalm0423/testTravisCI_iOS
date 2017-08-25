@@ -1,22 +1,36 @@
 language: objective-c
 os: osx
 cache:
-    - bundler
-    - cocoapods
+- bundler
+- cocoapods
+
 osx_image: xcode8.3
 sudo: false
-before_install:
-    - brew update
-    - brew outdated xctool || brew upgrade xctool
-    - gem install cocoapods -v '1.2.1'
-    - pod repo update
-script: xctool -project testTravisCI.xcodeproj -scheme testTravisCI -sdkiphonesimulator  test
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
-notifications:
-    slack:
-        rooms:
-            - liquid-wow:FKzsScp1dTpExUmEM0ZsDFWC
-        on_success: always
-        on_failure: always
 
+before_script:
+- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in fastlane/Certificates/485GAHJ2Q5.p12.enc -d -a -out fastlane/Certificates/485GAHJ2Q5.p12
+
+before_install:
+- brew update
+- brew outdated xctool || brew upgrade xctool
+- gem install cocoapods -v '1.2.1'
+- pod repo update
+
+script:
+- ./fastlane/travis.sh
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  slack:
+    rooms:
+    - liquid-wow:FKzsScp1dTpExUmEM0ZsDFWC
+    on_success: always
+    on_failure: always
+
+env:
+  global:
+  - secure: YBwH201uExMRcxTeNFaqIKjGEPoyXWMDmgKtZzpck3SUi65UFEkXWgpkDJNqJurXtbxvUsk15+KMnpnitD3mQBbV5opNIyh2fIcW/e2NvVOQP23ITceB25wO6H4Ne25b5Gxf2U76+MPAE9iHK5RWk3apzJPp+DCy7MIU+kkz3pTHWr9kdPySXSh8CGh4k6qMlRc01Oz7Zjll6vBa2SZHyy4RFujpKE9LYL9VZtbsQby3iFvDJ5LqMb3//6UkWlLNLgddj6wxh9J0rTFrE+8Gomfp+VO9+3ihQl3X8PXq3nOB9lb/e7ig4yPPubKXXuN4lTJYH/1BZykZ0syR2JKVqbcuQvpjw7sTmTsu1d2VmGG3FBSxV+9PZkYqnVOzoQhgumegaQDO0J0h79GYGOwvcuIc2sl0FCBc6wXhhrxOslP4l/vfiB617wfNC743uTJi2E8w3DXxhbMq/YqiZp0mEU8MhQf0tAgtEDKl670bdEEQybqVI6pA2wZXwNkeMsOKWHU39r0O6yAEzlouXCo/0nVwvAfOrkG92aAsfYYIzaO3QEOxYBvLLZAZKBvu0Nsi27zKb30S0kR7pqjE+ZU8/JASp6t+BohJ5H09AHOBlvZtAHw4I8Z3WZkA8N7ptIvS85vjMbkGRFYddz7W3zJRcGr4bpUffvTmdb6Bf/rnFqU=
+  - secure: WDQKj5JrBiqNJDFM/VhJ/CZJR9g4ZbLwT9R8lz8sxqGISdXhcLsRxRoJeTb3pvoDaEeOP/iBaA8jPW0GdvguZkR3QMBfrjW/JUYa46Mthe+8bd9851F0pWiHvW0jD8+TgApREIGMqKL4iiDdWuJe+voLeYpOfdeZPZAWL22lwyD5ofGMRiGXu35f5PNHoCC89AxpzjPeaBXq4X3nU2BTzNb6kIGThiW0fW9RIXWmM21D7FjBV5wpp+ohfTBiPNo1pW7T5Sdo+WiBH+aJeq5TFKBcdi/n3dodXw6hegOxOq4SJJfc4uZD12hQRCMa1zE0uW/UuEvu6qO+9bB0JN+2tyXXsX89PuKUGBSeKIVAFbE8/QXR4xdcaD3DhMQ4JcbvrlJAJfTY0N2an5hOZxAK9TKMqrHKR6ObFpapaczdnUjwp7n5a/BPbAaStnuHnCYH155AXPSeyoK8GCh0tVZz4+qJfnXr5+rdSZ9x3YXiKPDxOXEYQBiqK194VeijZFeGdrGeynv/4AEDmt2KL7+gjegh0iobt5vDzPBtU3t6RNj4x3GtDHr4nvhvDGSYy3Jb6lRo3pgDHcVXb33X+TOA5xHlgmK04UZ76MYgQ1ZU3WT4O51NzKhWY1+zXTJfPSbh1Qbc3mZuvkEZcRoo91dE22Y3FuHeaI+TPtX+nxipfVw=
+  - secure: rYNSznwsphVA4fnu+Mjtn/eQsdVTQMjAudAwYp7rp9VadkOWtZrgNW6xgApg5mHuM+i7izLGLkCuU5mdwUK+uV9dAKzzyJ9jrbNtNschlraXLkKuNacz+xxP9zOwz0SEfiPWCQfi53FkxzPGm5uZtvf5cMcXiK7M38hW0140Yc75pIqSPyEJZpkBYvQKozqFCt7cBMmWtG/Xxpxj2ZNgy92xnrB/amBNBr24SHsIwjqRb5v+AaTlAfOpMQ5oyU83v4vlOkN0PKH4W2YYNwB/qmuzbl/vBH6C1rQ6wH7/XTu7RsjljY3EHHp5+Lksl3pCLfnp44LvCGy6orkml9GQs2swousLIUt2+ykN5SkNJ6QUltjAG2cQkc9TIVxowMdPzEsXNdM94cFM8rfJvooDiQYdtDBq8xeEYqhGgaSaiu1k5RQppCRqOewKZIYOHOjj6ms9ch+9Zzgvm1lLqQPsw61yOJbszBfa0t/cTjTkOmGDccVTDS/T6z74d3uB1e0fXjiPUXFFd9bC7+1wB6CUR1ok/5fs0xwYyg1CFPTA+DaBA+v6e6yskEc216JqtepEkFln08Q8gaVA4NL5h2Onn8O7Bf/gP9yYGZdMHgG1WBTXSyOz+DW9ITM/VsvTLyWcFElfZMKBrAAUveN+PH3aDppIFNazLCEA83YfMplJHUY=

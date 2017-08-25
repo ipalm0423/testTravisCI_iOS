@@ -19,7 +19,6 @@ platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     
-    
   end
 
   desc "Runs all the tests"
@@ -30,9 +29,48 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "testTravisCI") # Build your app - more options available
+
+    temp_keychain_name = "testTravis-certs"
+
+    create_keychain(
+    name: temp_keychain_name,
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    lock_when_sleeps: true,
+    password: SecureRandom.base64
+    )
+
+    import_certificate(
+        certificate_path: "fastlane/Certificates/485GAHJ2Q5.p12",
+        certificate_password: ENV["KEY_PASSWORD"],
+        keychain_name: temp_keychain_name
+    )
+
+    sigh(
+        adhoc: false,
+        username: "76423ok@gmail.com",
+        team_id: "Z2U36UFBHG",
+        provisioning_name: "Test Travis AppStore",
+        cert_id: "485GAHJ2Q5"
+    )
+
+    increment_build_number(build_number: number_of_commits)
+
+    gym(
+        configuration: "AppStore",
+        clean: true,
+        include_bitcode: false,
+        include_symbols: true,
+        use_legacy_build_api: true,
+        export_method: "app-store"
+    )
+
     pilot
+
+    delete_keychain(
+        name:temp_keychain_name
+    )
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
