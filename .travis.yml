@@ -6,8 +6,8 @@ cache:
 osx_image: xcode8.3
 sudo: false
 before_script:
-- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in fastlane/Certificates/485GAHJ2Q5.p12.enc
-  -d -a -out fastlane/Certificates/485GAHJ2Q5.p12
+- openssl aes-256-cbc -k $ENCRYPTION_PASSWORD -in fastlane/Certificates/cert.p12.enc
+  -d -a -out fastlane/Certificates/cert.p12
 before_install:
 - brew update
 - brew outdated xctool || brew upgrade xctool

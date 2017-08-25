@@ -43,7 +43,7 @@ begin
     )
 
     import_certificate(
-        certificate_path: "fastlane/Certificates/485GAHJ2Q5.p12",
+        certificate_path: "fastlane/Certificates/cert.p12",
         certificate_password: ENV["KEY_PASSWORD"],
         keychain_name: temp_keychain_name
     )
@@ -60,7 +60,6 @@ end
         username: "76423ok@gmail.com",
         team_id: "Z2U36UFBHG",
         provisioning_name: "Test Travis AppStore",
-        cert_id: "485GAHJ2Q5"
     )
 
     increment_build_number(build_number: number_of_commits)
