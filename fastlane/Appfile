@@ -13,7 +13,7 @@ for_platform :ios do
     end
 
     for_lane :beta do
-        app_identifier "com.morpheus.testTravisCI.test.appstore"
+        app_identifier "com.morpheus.testTravisCI.test"
     end
 
 end
