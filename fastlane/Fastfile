@@ -14,7 +14,6 @@
 fastlane_version "2.54.0"
 
 default_platform :ios
-xcversion(version: "8.3")
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
@@ -59,7 +58,7 @@ end
         adhoc: false,
         username: "76423ok@gmail.com",
         team_id: "Z2U36UFBHG",
-        provisioning_name: "Test Travis AppStore",
+        provisioning_name: "com.morpheus.testTravisCI.test",
     )
 
     increment_build_number(build_number: number_of_commits)
