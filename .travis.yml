@@ -13,6 +13,7 @@ before_install:
 - brew outdated xctool || brew upgrade xctool
 - gem install cocoapods -v '1.2.1'
 - pod repo update
+- chmod +x travis.sh
 script:
 - "./fastlane/travis.sh"
 after_success:
