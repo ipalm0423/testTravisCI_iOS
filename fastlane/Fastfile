@@ -14,7 +14,7 @@
 fastlane_version "2.54.0"
 
 default_platform :ios
-
+xcversion(version: "8.3")
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
@@ -69,7 +69,6 @@ end
         clean: true,
         include_bitcode: false,
         include_symbols: true,
-        use_legacy_build_api: true,
         export_method: "app-store"
     )
 
