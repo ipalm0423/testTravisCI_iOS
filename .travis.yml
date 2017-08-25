@@ -15,7 +15,8 @@ before_install:
 - pod repo update
 - chmod +x ./fastlane/travis.sh
 script:
-- "./fastlane/travis.sh"
+- fastlane beta
+
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 notifications:
