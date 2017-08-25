@@ -14,8 +14,10 @@ before_install:
 - gem install cocoapods -v '1.2.1'
 - pod repo update
 - chmod +x ./fastlane/travis.sh
+- sudo gem install fastlane
+
 script:
-- fastlane beta
+- ./fastlane/travis.sh
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)

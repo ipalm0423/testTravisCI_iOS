@@ -14,3 +14,8 @@ if [[ "$TRAVIS_BRANCH" == "develop" ]]; then
     fastlane beta
     exit $?
 fi
+
+if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    fastlane beta
+    exit $?
+fi
