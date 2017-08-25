@@ -30,14 +30,15 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
 
-    temp_keychain_name = "testTravis-certs"
+begin
+    puts 'Importing certificates...'
 
+    temp_keychain_name = "testTravis-certs"
     create_keychain(
         name: temp_keychain_name,
-        default_keychain: true,
+        default_keychain: false,
         unlock: true,
         timeout: 3600,
-        lock_when_sleeps: true,
         password: SecureRandom.base64
     )
 
@@ -46,6 +47,13 @@ platform :ios do
         certificate_password: ENV["KEY_PASSWORD"],
         keychain_name: temp_keychain_name
     )
+
+    puts 'Certificates imported succesfully.'
+rescue
+
+    puts 'Certificates were already imported to the keychain before.'
+
+end
 
     sigh(
         adhoc: false,
